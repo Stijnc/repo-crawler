@@ -12,7 +12,7 @@ load_dotenv()
 ORG = os.getenv("INPUT_ORGANIZATION") or sys.argv[2]
 GH_TOKEN = os.getenv("INPUT_GH_TOKEN") or sys.argv[1]
 TOPIC = os.getenv("INPUT_TOPIC") or sys.argv[3]
-OUTPUTFILENAME = os.getenv("INPUT_OUTPUTFILENAME") or sys.argv[4] or "repositories.json"
+OUTPUTFILENAME = os.getenv("INPUT_OUTPUTFILENAME") or sys.argv[4]
 
 gh = github3.login(token=GH_TOKEN)
 
