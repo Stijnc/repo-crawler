@@ -1,6 +1,6 @@
 # action.yml
-name: 'Repository crawler'
-description: 'Crawl organization repositories for innersourcing repo's'
+name: 'Repository-crawler'
+description: 'Crawl organization repositories for innersourcing repos'
 inputs:
   gh_token:  # github token
     description: 'Github token'
