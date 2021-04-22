@@ -1,26 +1,26 @@
-name: 'Repository-crawler'
-description: 'Crawl organization repositories for innersourcing repos'
+name: "Repository-crawler"
+description: "Crawl organization repositories for innersourcing repos"
 inputs:
   gh_token:  # github token
-    description: 'Github token'
+    description: "Github token"
     required: true
   organization:  # github org
-    description: 'Github organization'
+    description: "Github organization"
     required: true 
   topic: # github topic
-    description: 'Github topic to filter on'
+    description: "Github topic to filter on"
     required: true
-    default: 'inner-source'
+    default: "inner-source"
   outputFilename:
-    description: 'File to write the list to (json)'
+    description: "File to write the list to (json)"
     required: false
-    default: 'repositories.json'
+    default: "repositories.json"
 outputs:
   repositories: 
-    description: 'The list of repositories'
+    description: "The list of repositories"
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "docker"
+  image: "Dockerfile"
   args:
      - ${{ inputs.gh_token }}
      - ${{ inputs.organization }}
