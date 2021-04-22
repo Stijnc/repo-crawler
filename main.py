@@ -1,5 +1,6 @@
 import json
 import os
+import sys
 from base64 import b64decode
 from os.path import dirname, join
 
@@ -8,15 +9,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-ORG = os.getenv("organization")
-GH_TOKEN = os.getenv("gh_token")
-TOPIC = os.getenv("topic")
-OUTPUTFILENAME = os.getenv("outputFileName") or "repositories.json"
-ARCHIVED = os.getenv("archived") or "false"
+ORG = os.getenv("INPUT_ORGANIZATION") or sys.argv[2]
+GH_TOKEN = os.getenv("INPUT_GH_TOKEN") or sys.argv[1]
+TOPIC = os.getenv("INPUT_TOPIC") or sys.argv[3]
+OUTPUTFILENAME = os.getenv("INPUT_OUTPUTFILENAME") or sys.argv[4] or "repositories.json"
 
 gh = github3.login(token=GH_TOKEN)
 
-query = "org:{} topic:{} archived:{}".format(ORG, TOPIC, ARCHIVED)
+query = "org:{} topic:{}".format(ORG, TOPIC)
 all_repos = gh.search_repositories(query)
 repo_list = []
 
